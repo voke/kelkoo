@@ -26,9 +26,13 @@ automatically from env variables: `ENV['KELKOO_ID']`, `ENV['KELKOO_KEY']`
 and `ENV['KELKOO_MARKET']`.
 
 #### Products
+Build request object using chainable scopes.
 ```ruby
-products = Kelkoo::Product.where(query: 'iphone', brandName: 'apple')
-products = products.limit(10).where(merchantId: 11853713)
+products = Kelkoo::Product.where(query: 'iphone', brandName: 'apple').limit(10)
+
+if merchant_id
+  products = products.where(merchantId: merchant_id)
+end
 
 products.each do |product|
   p product.name
