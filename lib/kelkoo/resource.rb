@@ -3,6 +3,8 @@ module Kelkoo
 
     include Enumerable
 
+    attr_writer :params
+
     def initialize
       @params = { results: Kelkoo.config.default_limit }
     end
@@ -45,7 +47,17 @@ module Kelkoo
       where(start: value)
     end
 
+    def spawn
+      self.class.new.tap do |instance|
+        instance.params = @params.dup
+      end
+    end
+
     def where(params = {})
+      spawn.where!(params)
+    end
+
+    def where!(params)
       @params.merge!(params)
       self
     end
