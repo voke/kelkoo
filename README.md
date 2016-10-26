@@ -28,7 +28,7 @@ and `ENV['KELKOO_MARKET']`.
 #### Products
 ```ruby
 products = Kelkoo::Product.where(query: 'iphone', brandName: 'apple')
-products = products.limit(10).sort(:price_ascending)
+products = products.limit(10).where(merchantId: 11853713)
 
 products.each do |product|
   p product.name
