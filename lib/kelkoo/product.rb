@@ -22,6 +22,10 @@ module Kelkoo
       Base64.urlsafe_encode64(self.url)
     end
 
+    def refine(*values)
+      where(refinement: Array(values).join(','))
+    end
+
     def self.parse(payload, request_params)
       Kelkoo::ProductResponse.new(payload, request_params)
     end
