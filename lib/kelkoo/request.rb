@@ -5,9 +5,10 @@ require 'open-uri'
 module Kelkoo
   class Request
 
-    attr_accessor :request_params, :partner_id, :partner_key, :market
+    attr_accessor :request_params, :partner_id, :partner_key, :market, :path
 
     def initialize(options = {})
+      self.path = options[:path]
       self.partner_id = options.delete(:partner_id) || Kelkoo.config.partner_id
       self.partner_key = options.delete(:partner_key) || Kelkoo.config.partner_key
       self.market = options.delete(:market) || Kelkoo.config.market
@@ -27,7 +28,7 @@ module Kelkoo
 
     def url
       querystring = URI.encode_www_form(serialized_params)
-      url_signer(api_domain, "/#{Kelkoo.config.version}/productSearch?#{querystring}", partner_id, partner_key)
+      url_signer(api_domain, "#{path}?#{querystring}", partner_id, partner_key)
     end
 
     def execute

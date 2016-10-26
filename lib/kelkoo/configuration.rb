@@ -8,7 +8,6 @@ module Kelkoo
       self.partner_id = ENV['KELKOO_ID']
       self.partner_key = ENV['KELKOO_KEY']
       self.base_url = 'http://%s.shoppingapis.kelkoo.com'
-      self.version = 'V3'
       self.default_limit = 20
       self.market = ENV['KELKOO_MARKET']
     end

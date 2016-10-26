@@ -12,8 +12,9 @@ module Kelkoo
     end
 
     def response
-      @response ||= self.class.parse(Kelkoo::Request.new(@params).execute,
-        @params)
+      @response ||= self.class.parse(Kelkoo::Request.new(@params.merge(
+        path: self.class.api_path
+      )).execute, @params)
     end
 
     def each

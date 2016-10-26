@@ -26,6 +26,10 @@ module Kelkoo
       Kelkoo::ProductResponse.new(payload, request_params)
     end
 
+    def self.api_path
+      '/V3/productSearch'
+    end
+
     def self.map_to_products(payload)
       payload['ProductSearch']['Products']['Product'].map do |entry|
         offer = entry.is_a?(Hash) ? entry['Offer'] : entry.last
