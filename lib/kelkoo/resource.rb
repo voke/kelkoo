@@ -40,7 +40,7 @@ module Kelkoo
     end
 
     def limit(value)
-      where(results: value)
+      where(results: Integer(value))
     end
 
     def offset(value)
@@ -69,7 +69,7 @@ module Kelkoo
     protected
 
     def calculate_offset(page_number)
-      (page_number - 1) * per_page + 1
+      (Integer(page_number) - 1) * per_page + 1
     end
 
   end
