@@ -54,7 +54,7 @@ module Kelkoo
      end
 
      def warnings
-       Array(data['ProductSearch']['Warnings']['Warning'])
+       Array(payload['ProductSearch']['Warnings']['Warning'])
      end
 
      def parse
