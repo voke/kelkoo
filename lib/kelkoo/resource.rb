@@ -62,6 +62,10 @@ module Kelkoo
       self
     end
 
+    def to_ary
+      entries
+    end
+
     def self.where(params = {})
       new.where(params)
     end
