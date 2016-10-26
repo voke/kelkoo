@@ -43,7 +43,7 @@ module Kelkoo
           url: offer['Url'],
           price: offer['Price']['Price'],
           shipping_cost: offer['Price']['DeliveryCost'],
-          store: Store.from_payload(offer['Merchant']),
+          store: Kelkoo::Store.from_payload(offer['Merchant']),
           brand_name: offer['Brand'],
           image_url: Kelkoo::Image.sized_url(offer['Images'].fetch('Image', {})['Url'], 300, 300),
           discount: offer['Price']['Rebate'],
