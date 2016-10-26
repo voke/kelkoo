@@ -53,6 +53,10 @@ module Kelkoo
        current_page == total_pages
      end
 
+     def warnings
+       Array(data['ProductSearch']['Warnings']['Warning'])
+     end
+
      def parse
        if total_count > 0
          self.products = Product.map_to_products(payload)
