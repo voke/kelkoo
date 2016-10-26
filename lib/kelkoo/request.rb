@@ -8,7 +8,7 @@ module Kelkoo
     attr_accessor :request_params, :partner_id, :partner_key, :market, :path
 
     def initialize(options = {})
-      self.path = options[:path]
+      self.path = options.delete(:path)
       self.partner_id = options.delete(:partner_id) || Kelkoo.config.partner_id
       self.partner_key = options.delete(:partner_key) || Kelkoo.config.partner_key
       self.market = options.delete(:market) || Kelkoo.config.market
