@@ -34,7 +34,7 @@ module Kelkoo
       '/V3/productSearch'
     end
 
-    def self.map_to_products(payload)
+    def self.from_payload(payload)
       payload['ProductSearch']['Products']['Product'].map do |entry|
         offer = entry.is_a?(Hash) ? entry['Offer'] : entry.last
         new(

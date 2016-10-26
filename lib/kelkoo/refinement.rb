@@ -16,7 +16,7 @@ module Kelkoo
       (options.map(&:value) & values).empty?
     end
 
-    def self.map_to_refinements(payload)
+    def self.from_payload(payload)
       payload['ProductSearch']['Refinements']['Refinement'].map do |entry|
         refinement = new(label: entry['label'], name: entry['name'])
         refinement.options = []

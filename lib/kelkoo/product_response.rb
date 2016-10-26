@@ -55,8 +55,8 @@ module Kelkoo
 
      def parse
        if total_count > 0
-         self.entries = Product.map_to_products(payload)
-         self.refinements = Refinement.map_to_refinements(payload)
+         self.entries = Product.from_payload(payload)
+         self.refinements = Refinement.from_payload(payload)
        end
      end
 
