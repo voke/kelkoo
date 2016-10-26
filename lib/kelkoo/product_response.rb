@@ -17,10 +17,6 @@ module Kelkoo
        Integer(payload['ProductSearch']['Products']['totalResultsAvailable'])
      end
 
-     def total_returned
-       Integer(payload['ProductSearch']['Products']['totalResultsReturned'])
-     end
-
      def total_pages
        (total_count.to_f / per_page).ceil
      end
@@ -58,7 +54,7 @@ module Kelkoo
      end
 
      def parse
-       if total_returned > 0
+       if count > 0
          self.entries = Product.from_payload(payload)
          self.refinements = Refinement.from_payload(payload)
        end
