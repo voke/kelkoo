@@ -3,18 +3,14 @@ require 'crack/xml'
 module Kelkoo
   class ProductResponse
 
-    attr_accessor :refinements, :products, :payload, :request_params
+    attr_accessor :refinements, :entries, :payload, :request_params
 
      def initialize(payload, request_params)
        self.payload = Crack::XML.parse(payload)
        self.refinements = []
-       self.products = []
+       self.entries = []
        self.request_params = request_params
        parse
-     end
-
-     def entries
-       self.products
      end
 
      def total_count
@@ -59,7 +55,7 @@ module Kelkoo
 
      def parse
        if total_count > 0
-         self.products = Product.map_to_products(payload)
+         self.entries = Product.map_to_products(payload)
          self.refinements = Refinement.map_to_refinements(payload)
        end
      end
