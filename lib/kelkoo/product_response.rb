@@ -30,7 +30,7 @@ module Kelkoo
      end
 
      def current_page
-       (position / per_page) + 1
+       [1, (position.to_f / per_page).ceil].max
      end
 
      def position
