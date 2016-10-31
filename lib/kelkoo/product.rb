@@ -5,7 +5,7 @@ module Kelkoo
   class Product < Kelkoo::Resource
 
     attr_accessor :id, :name, :price, :brand_name, :store, :image_url, :url,
-      :shipping_cost, :discount, :regular_price
+      :shipping_cost, :discount, :regular_price, :description
 
     extend Forwardable
     def_delegators :response, :total_count, :total_pages, :current_page,
@@ -42,6 +42,7 @@ module Kelkoo
           name: offer['Title'],
           url: offer['Url'],
           price: offer['Price']['Price'],
+          description: offer['Description'],
           shipping_cost: offer['Price']['DeliveryCost'],
           store: Kelkoo::Store.from_payload(offer['Merchant']),
           brand_name: offer['Brand'],
