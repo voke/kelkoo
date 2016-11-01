@@ -35,8 +35,20 @@ if merchant_id
 end
 
 products.each do |product|
+
   p product.name
+  p product.price
+  p product.brand_name
+  p product.image_url
+  p product.url
+  p product.shipping_cost
+  p product.discount
+  p product.regular_price
+  p product.description
+
   p product.store.name
+  p product.store.image_url
+
 end
 
 products.any?
