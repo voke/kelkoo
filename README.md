@@ -45,7 +45,6 @@ products.each do |product|
   p product.discount
   p product.regular_price
   p product.description
-
   p product.store.name
   p product.store.image_url
 
