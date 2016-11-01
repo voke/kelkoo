@@ -1,7 +1,7 @@
 module Kelkoo
   class Configuration
 
-    attr_accessor :partner_id, :partner_key, :base_url, :version, :market,
+    attr_accessor :partner_id, :partner_key, :base_url, :market,
       :default_limit
 
     def initialize
