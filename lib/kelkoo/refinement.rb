@@ -23,7 +23,7 @@ module Kelkoo
         [entry['RefineValue']].flatten.each do |data|
           refinement.options << RefinementValue.new(
             data['Title'],
-            data['NumberOfProducts'],
+            data['NumberOfProducts'].to_i,
             data['Value']
           )
         end
