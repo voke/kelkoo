@@ -70,6 +70,14 @@ module Kelkoo
       new.where(params)
     end
 
+    def self.api_path
+      raise(NotImplementedError)
+    end
+
+    def self.parse(*args)
+      raise(NotImplementedError)
+    end
+
     protected
 
     def calculate_offset(page_number)
