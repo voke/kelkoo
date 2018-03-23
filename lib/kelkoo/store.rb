@@ -12,7 +12,7 @@ module Kelkoo
     def self.from_payload(payload)
       new(
         name: payload['Name'],
-        image_url: payload.fetch('Logo', {})['Url'],
+        image_url: (payload['Logo'] || {})['Url'],
         id: payload['id']
       )
     end
